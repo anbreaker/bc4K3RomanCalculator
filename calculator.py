@@ -22,7 +22,7 @@ class Display(ttk.Frame):
         s.configure('my.TLabel', font='Helvetica 42')
 
         self.__lbl = ttk.Label(self, text='_', style='my.TLabel',
-                               anchor=E, backgroud='black', foreground='white')
+                               anchor=E, background='black', foreground='white')
         self.__lbl.pack(side=TOP, fill=BOTH, expand=TRUE)
 
 
