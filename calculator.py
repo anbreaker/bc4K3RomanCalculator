@@ -7,7 +7,7 @@ WIDTHBTN = 68
 
 class CalcButton(ttk.Frame):
     def __init__(self, parent, text, command, wbtn=1, hbtn=1):
-        ttk.Frame.__init__(self, parent)
+        ttk.Frame.__init__(self, parent, width=wbtn*WIDTHBTN)
 
 
 class Display(ttk.Frame):
@@ -19,7 +19,7 @@ class Display(ttk.Frame):
 
         s = ttk.Style()
         s.theme_use('alt')
-        s.configure('my.TLabel', font='Helvetica 42')
+        s.configure('my.TLabel', font='Helvetica 32')
 
         self.__lbl = ttk.Label(self, text='_', style='my.TLabel',
                                anchor=E, background='black', foreground='white')
@@ -71,7 +71,7 @@ class Calculator(ttk.Frame):
         self.buttonAdd.grid(column=3, row=3)
 
         self.buttonEqu = CalcButton(self, text="=", command=None, wbtn=2)
-        self.buttonEqu.grid(column=3, row=4, colspan=2)
+        self.buttonEqu.grid(column=3, row=4, columnspan=2)
 
         self.Selector = Selector(self)
         self.Selector.grid(column=0, row=4)
