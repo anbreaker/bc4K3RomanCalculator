@@ -35,7 +35,7 @@ class Display(ttk.Frame):
         # Estlios
         s = ttk.Style()
         s.theme_use('alt')
-        s.configure('my.TLabel', font='Helvetica 24')
+        s.configure('my.TLabel', font='Helvetica 12')
 
         self.__lbl = ttk.Label(self, text='_', style='my.TLabel',
                                anchor=E, background='black', foreground='white')
@@ -50,6 +50,10 @@ class Display(ttk.Frame):
         else:
             self.cadena += caracter
 
+        self.__lbl.config(text=self.cadena)
+
+    def clear(self):
+        self.cadena = '_'
         self.__lbl.config(text=self.cadena)
 
 
@@ -80,7 +84,8 @@ class Calculator(ttk.Frame):
         self.pantalla.grid(column=0, row=0, columnspan=4)
 
         # Botones calculadora
-        self.buttonDell = CalcButton(self, text='Del', command=None, wbtn=3)
+        self.buttonDell = CalcButton(
+            self, text='Del', command=self.pantalla.clear, wbtn=3)
         self.buttonDell.grid(column=0, row=1, columnspan=3)
 
         # ÷
